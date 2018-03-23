@@ -1,7 +1,7 @@
+import { SearchItem } from './../../searchresult';
 import { SearchService } from './../../common/services/search.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../../Users';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
@@ -11,7 +11,7 @@ import { Subject } from 'rxjs/Subject';
 })
 export class SearchComponent implements OnInit {
   searchTerm$ = new Subject<string>();
-  public data: any[];
+  public data: SearchItem[];
 
   constructor(private _searchService: SearchService) { }
 
@@ -19,8 +19,13 @@ export class SearchComponent implements OnInit {
     this._searchService.search(this.searchTerm$)
       .subscribe(results => {
         this.data = results.items;
-      console.log(this.data);
       });
-      }
+  }
 
+  public searchTermChanged(val: string) {
+    if (val) {
+      this.searchTerm$.next(val);
+    }
+
+  }
 }

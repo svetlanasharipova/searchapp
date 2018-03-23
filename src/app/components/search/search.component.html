@@ -1,5 +1,9 @@
-<input type="text" #myInput placeholder="input name here" 
-(input)="searchTerm$.next($event.target.value)">
-<ul *ngIf="data">
-   <li *ngFor="let d of data"> {{d.name}}</li>
-</ul>
+<div class="search-bar">
+<input type="search" #myInput placeholder="search Github" autofocus
+(input)="searchTermChanged($event.target.value)">
+</div>
+<div class="grid-container" *ngIf="data">
+        <div *ngFor="let d of data">
+                <app-card [item]="d"></app-card></div>
+</div>
+

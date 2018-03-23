@@ -1,0 +1,25 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-row-gap: 30px;
+    
+}
+
+.search-bar {
+    display: block;
+    background: #34495E;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-bar input {
+    width: 800px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 1em;
+}
